@@ -13,6 +13,11 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector('images');
-const li = document.createElement("li");
-  ul.gallery.appendChild(li);
+const galleryList = document.querySelector(".gallery");
+const createGalleryItem = ({ url, alt }) =>
+  `<li><img src = "${url}" alt = "${alt}"></li>`;
+const galleryMarkup = images.reduce(
+  (acc, item) => acc + createGalleryItem(item),
+  ""
+);
+galleryList.insertAdjacentHTML("beforeend", galleryMarkup);
